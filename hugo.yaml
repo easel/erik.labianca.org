@@ -10,7 +10,10 @@ params:
   author: Erik LaBianca
   defaultTheme: auto
   showReadingTime: true
-  showShareButtons: false
+  showShareButtons: true
+  ShareButtons:
+    - x
+    - linkedin
   showPostNavLinks: true
   showBreadCrumbs: true
   showCodeCopyButtons: true
@@ -21,6 +24,9 @@ params:
     Content: >
       Technology, software engineering, and infrastructure —
       from someone who's been building things on the internet since 1997.
+
+  social:
+    twitter: easel
 
   socialIcons:
     - name: github

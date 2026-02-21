@@ -10,6 +10,22 @@ tags:
   - python
   - postgresql
   - benchmarking
+syndication:
+  twitter_text: "Django ORM + psycopg2 adds ~50% overhead vs raw C/libpq for trivial SELECTs. The bottleneck is client-side — the database barely breaks a sweat."
+  linkedin_hook: |
+    Your database isn't the bottleneck. Your ORM is.
+
+    I benchmarked Django ORM + psycopg2 against raw C/libpq for trivial single-row SELECTs. The results:
+
+    - Django + psycopg2: ~940 queries/sec
+    - C + libpq: ~2,150 queries/sec (via PgBouncer)
+    - C + libpq local: ~5,680 queries/sec
+
+    That's ~50% overhead from the ORM layer alone. And at scale, PgBouncer itself became the bottleneck at 50% CPU before PostgreSQL even broke a sweat.
+
+    The takeaway: for latency-sensitive paths, the time is spent in Python object creation and serialization, not in the database. CPU utilization is misleading — 8 Python clients showed only 12% client CPU yet throughput was maxed.
+
+    I wrote up the full benchmark methodology and multi-client scaling results on my blog.
 ---
 
 **TL;DR:** Django ORM + psycopg2 adds ~50% overhead vs raw C/libpq for trivial
@@ -65,10 +81,10 @@ for (count = 0; count < 100; count++) {
 | **C + libpq, direct** | 3.80s | ~2630 |
 | **C + libpq, local** | 1.76s | ~5680 |
 
-<details>
-<summary>Raw single-client benchmark output</summary>
+{{< details "Raw single-client benchmark output" >}}
 
 **Django via PgBouncer (10K queries):**
+
 ```text
 [root@domU-12-31-38-04-59-91 ~]# time ./bench.py
 initial
@@ -90,6 +106,7 @@ sys     0m0.229s
 ```
 
 **Django direct, no PgBouncer:**
+
 ```text
 [root@domU-12-31-38-04-59-91 ~]# time ./bench.py
 initial
@@ -111,6 +128,7 @@ sys     0m0.219s
 ```
 
 **Django local on database server:**
+
 ```text
 [root@domU-12-31-38-04-58-E1 data]# time ./bench.py
 initial
@@ -132,6 +150,7 @@ sys     0m0.275s
 ```
 
 **C + libpq via PgBouncer:**
+
 ```text
 [root@domU-12-31-38-04-59-91 ~]# time ./bench "dbname=content hostaddr=127.0.0.1 user=user"
 
@@ -141,6 +160,7 @@ sys     0m0.031s
 ```
 
 **C + libpq direct:**
+
 ```text
 [root@domU-12-31-38-04-59-91 ~]# time ./bench "dbname=content hostaddr=10.220.91.15 user=user"
 
@@ -150,6 +170,7 @@ sys     0m0.005s
 ```
 
 **C + libpq local:**
+
 ```text
 [root@domU-12-31-38-04-58-E1 tmp]#  time ./bench "dbname=ngdm_wpf_content hostaddr=127.0.0.1 user=ngdm_wpf"
 
@@ -158,7 +179,7 @@ user    0m0.048s
 sys     0m0.062s
 ```
 
-</details>
+{{< /details >}}
 
 ## Multi-Client Scaling (C + libpq)
 
@@ -182,10 +203,10 @@ the server fast enough to actually push it.
 55%. At 32 clients, EC2 steal time hits 9% — we're hitting the hypervisor, not
 PostgreSQL.
 
-<details>
-<summary>Raw multi-client top output</summary>
+{{< details "Raw multi-client top output" >}}
 
 **8 Python clients via PgBouncer — client:**
+
 ```text
 top - 22:05:16 up  3:50,  5 users,  load average: 3.94, 3.42, 2.45
 Tasks: 135 total,   4 running, 131 sleeping,   0 stopped,   0 zombie
@@ -206,6 +227,7 @@ Swap:        0k total,        0k used,        0k free,   452504k cached
 ```
 
 **8 Python clients via PgBouncer — server:**
+
 ```text
 top - 22:06:04 up  7:02,  4 users,  load average: 3.15, 3.19, 4.10
 Tasks: 127 total,   4 running, 123 sleeping,   0 stopped,   0 zombie
@@ -225,6 +247,7 @@ Swap:        0k total,        0k used,        0k free,  1996524k cached
 ```
 
 **8 C clients via PgBouncer — client:**
+
 ```text
 top - 22:23:49 up 4:08, 5 users, load average: 1.36, 0.50, 0.94
 Tasks: 148 total, 3 running, 144 sleeping, 1 stopped, 0 zombie
@@ -244,6 +267,7 @@ PID USER PR NI VIRT RES SHR S %CPU %MEM TIME+ COMMAND
 ```
 
 **8 C clients via PgBouncer — server:**
+
 ```text
 top - 22:23:35 up 7:19, 4 users, load average: 2.52, 0.79, 1.58
 Tasks: 129 total, 9 running, 120 sleeping, 0 stopped, 0 zombie
@@ -264,6 +288,7 @@ PID USER PR NI VIRT RES SHR S %CPU %MEM TIME+ COMMAND
 ```
 
 **8 C clients direct, no PgBouncer — client:**
+
 ```text
 top - 22:25:55 up 4:10, 5 users, load average: 0.76, 0.64, 0.94
 Tasks: 136 total, 2 running, 133 sleeping, 1 stopped, 0 zombie
@@ -283,6 +308,7 @@ PID USER PR NI VIRT RES SHR S %CPU %MEM TIME+ COMMAND
 ```
 
 **8 C clients direct, no PgBouncer — server:**
+
 ```text
 Tasks: 132 total, 5 running, 127 sleeping, 0 stopped, 0 zombie
 Cpu(s): 16.5%us, 7.0%sy, 0.0%ni, 74.2%id, 0.0%wa, 0.0%hi, 1.5%si, 0.7%st
@@ -301,6 +327,7 @@ PID USER PR NI VIRT RES SHR S %CPU %MEM TIME+ COMMAND
 ```
 
 **16 C clients, no PgBouncer — client:**
+
 ```text
 top - 22:28:21 up 4:13, 5 users, load average: 1.06, 0.80, 0.95
 Tasks: 144 total, 2 running, 141 sleeping, 1 stopped, 0 zombie
@@ -310,6 +337,7 @@ Swap: 0k total, 0k used, 0k free, 452660k cached
 ```
 
 **16 C clients, no PgBouncer — server:**
+
 ```text
 top - 22:28:28 up 7:24, 4 users, load average: 6.68, 3.73, 2.57
 Tasks: 138 total, 10 running, 128 sleeping, 0 stopped, 0 zombie
@@ -319,6 +347,7 @@ Swap: 0k total, 0k used, 0k free, 2756304k cached
 ```
 
 **4 local C clients:**
+
 ```text
 top - 22:31:31 up 7:27, 4 users, load average: 4.52, 4.18, 2.97
 Tasks: 130 total, 7 running, 123 sleeping, 0 stopped, 0 zombie
@@ -339,6 +368,7 @@ PID USER PR NI VIRT RES SHR S %CPU %MEM TIME+ COMMAND
 ```
 
 **8 local C clients:**
+
 ```text
 top - 22:32:25 up 7:28, 4 users, load average: 6.16, 4.62, 3.18
 Tasks: 138 total, 6 running, 132 sleeping, 0 stopped, 0 zombie
@@ -348,6 +378,7 @@ Swap: 0k total, 0k used, 0k free, 3451556k cached
 ```
 
 **16 local C clients:**
+
 ```text
 top - 22:33:11 up 7:29, 4 users, load average: 10.49, 5.91, 3.69
 Tasks: 154 total, 9 running, 145 sleeping, 0 stopped, 0 zombie
@@ -357,6 +388,7 @@ Swap: 0k total, 0k used, 0k free, 3639952k cached
 ```
 
 **32 local C clients:**
+
 ```text
 top - 22:34:50 up 7:31, 4 users, load average: 23.32, 11.03, 5.69
 Tasks: 181 total, 4 running, 177 sleeping, 0 stopped, 0 zombie
@@ -365,7 +397,7 @@ Mem: 7347752k total, 4381808k used, 2965944k free, 10244k buffers
 Swap: 0k total, 0k used, 0k free, 3952404k cached
 ```
 
-</details>
+{{< /details >}}
 
 ## Takeaways
 

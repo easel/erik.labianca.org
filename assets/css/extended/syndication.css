@@ -1,0 +1,77 @@
+.share-section {
+  margin-top: 1rem;
+}
+
+.share-section .share-buttons {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.75rem;
+}
+
+.share-section .share-buttons a {
+  color: var(--secondary);
+  transition: color 0.2s;
+}
+
+.share-section .share-buttons a:hover {
+  color: var(--primary);
+}
+
+.syndication-text {
+  margin-top: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.syndication-text summary {
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--secondary);
+  user-select: none;
+}
+
+.syndication-text summary:hover {
+  color: var(--primary);
+}
+
+.syndication-content {
+  padding: 0 0.75rem 0.75rem;
+  position: relative;
+}
+
+.syndication-pre {
+  background: var(--code-bg);
+  border-radius: 4px;
+  padding: 0.75rem;
+  margin: 0 0 0.5rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 0.85rem;
+  color: var(--content);
+  overflow-x: auto;
+}
+
+.syndication-pre code {
+  background: none;
+  padding: 0;
+  font-size: inherit;
+}
+
+.copy-syndication {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8rem;
+  color: var(--secondary);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.copy-syndication:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}

@@ -1,0 +1,12 @@
+{{- /* Copy-to-clipboard for syndication text */ -}}
+<script>
+document.addEventListener('click', function(e) {
+  var btn = e.target.closest('.copy-syndication');
+  if (!btn) return;
+  var text = btn.getAttribute('data-clipboard-text');
+  navigator.clipboard.writeText(text).then(function() {
+    btn.textContent = 'Copied!';
+    setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
+  });
+});
+</script>
