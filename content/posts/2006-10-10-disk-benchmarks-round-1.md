@@ -12,7 +12,7 @@ In the process of trying to figure out my VM performance problems, I've been doi
 
 One of my primary interests is the throughput I can get out of the 3ware 7506 raid controller in my unix nas box, both in order to optimize it and in order to compare to other solutions and determine if they will actually be an upgrade or not. In the process, I've been benchmarking an older Dell Precision Workstation 420. It has 4 wd1200jb drives plugged into its onboard IDE boards (yes, they are sharing ide channels), and is currently running opensolaris nv47. I played around with a few different ZFS configurations, but eventually settled on raidz, leaving me with 360G usable disk space. Here's some of the numbers I got:
 
-Filebench Benchmarks
+## Filebench Benchmarks
 
 ```
 Webserver IO Summary: 848559 ops 16865.4 ops/s, (5440/544 r/w)  91.8mb/s,    249us cpu/op,   0.3ms latency

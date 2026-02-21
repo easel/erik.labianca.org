@@ -20,26 +20,26 @@ Now, log into your unix machine. Make sure it can resolve the dns name of your a
 
 Run authconfig.
 
-Check [] Use LDAP
-Check [] Use LDAP Authentication
-Check [] Use Kerberos
-Check [] Local authorization is sufficient
+- Check [] Use LDAP
+- Check [] Use LDAP Authentication
+- Check [] Use Kerberos
+- Check [] Local authorization is sufficient
 
 You can check [] Cache Information if you want. I wouldn't until you know things work, as nscd can get out of sync with server and cause confusion.
 
 Select [ Next ]
 
-Enter your AD server dns name in the server. For example, adserver.corp.example.com
-Enter your AD base DN in the Base DN field. For example, dc=corp,dc=example,dc=com
+- Enter your AD server dns name in the server. For example, `adserver.corp.example.com`
+- Enter your AD base DN in the Base DN field. For example, `dc=corp,dc=example,dc=com`
 
 Select [ Next ]
 
-Enter your local dns name, in ALL CAPS in the realm field. For example, corp.example.com.
-Enter your server name:88 in the KDC field. For example adserver.corp.example.com:88
-Enter your server name:749 in the admin server field. For example adserver.corp.example.com:749
+- Enter your local dns name, in ALL CAPS in the realm field. For example, `CORP.EXAMPLE.COM`
+- Enter your server name:88 in the KDC field. For example `adserver.corp.example.com:88`
+- Enter your server name:749 in the admin server field. For example `adserver.corp.example.com:749`
 
-Check [] Use DNS to resolve hosts to realms
-Check [] Use DNS to locate KDCs for realms
+- Check [] Use DNS to resolve hosts to realms
+- Check [] Use DNS to locate KDCs for realms
 
 Select [ Finish ]
 

@@ -11,7 +11,7 @@ categories:
   - Information
 ---
 
-You may have seen an advertisement on TV for [Vonage](http://www.vonage.com), or perhaps a telecomm integrator is pitching you a new VoIP PBX. Maybe you've got comcast "digital voice" or one of the equivalent business grade systems from incumbent carriers like AT&T, something like IP Flex or Business VoIP. Or perhaps you talk to your oversees friends for free using [Skype](http://www.vonage.com), MSN or iChat. The fact is, VoIP is everywhere, but it remains confusing.
+You may have seen an advertisement on TV for [Vonage](http://www.vonage.com), or perhaps a telecomm integrator is pitching you a new VoIP PBX. Maybe you've got comcast "digital voice" or one of the equivalent business grade systems from incumbent carriers like AT&T, something like IP Flex or Business VoIP. Or perhaps you talk to your oversees friends for free using [Skype](http://www.skype.com), MSN or iChat. The fact is, VoIP is everywhere, but it remains confusing.
 
 The good news is that it's conceptually very simple. First, let's break down the acronym. Voice over Internet Protocol. Now, that was easy! VoIP just means any technology used to transmit voice communications over the Internet. Unfortunately, from here on out it gets more complicated.
 

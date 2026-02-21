@@ -63,7 +63,7 @@ Press any key to continue...
 
 Uh ok. So this isn't such great news. Getting really fancy and setting the boot loader to boot (hd0,0)/bzImage gives me this:
 
-```
+```text
 root (hd0,2)
  Filesystem type is ext2fs, partition type 0x83
 kernel (hd0,0)/bzImage ro root=/dev/hda3 console=ttyS0,115200 ramdisk_size=256000
