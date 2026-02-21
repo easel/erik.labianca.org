@@ -4,6 +4,8 @@ date: 2009-11-29T22:26:03+00:00
 author: "Erik LaBianca"
 draft: false
 description: "Use cmd-shift-. to quickly show hidden files in Mac OS X Snow Leopard Finder."
+tags:
+  - macos
 categories:
   - Computing
   - Tweaks
