@@ -20,10 +20,19 @@ content/
 themes/PaperMod/  # Theme (git submodule — do not edit)
 static/           # Static assets (images, files)
 hugo.yaml         # Site configuration
-.github/workflows/hugo.yml  # GitHub Pages deployment
+.github/workflows/
+  hugo.yml        # Deploy to GitHub Pages on push to master
+  pr.yml          # PR check — validates Hugo build on pull requests
 ```
 
-## Working with Worktrees
+## Branching and Merging
+
+The `next` branch is the working branch. Changes are merged to `master`
+for deployment. Use regular merges (not squash) to keep histories joined —
+squash merges break shared history and cause add/add conflicts on subsequent
+merges.
+
+### Worktrees
 
 This repo uses worktrunk for branch/worktree management:
 
@@ -66,6 +75,21 @@ description: "Brief description for RSS and social cards"
 - Keep front matter `description` under 160 characters for SEO
 - Set `draft: true` while working, `draft: false` when ready to publish
 
+### Content Policy
+
+This is a technical blog. Only publish **pure technical posts** — hands-on
+problem-solving, benchmarks, configuration guides, debugging notes. The
+following types of content are drafted (hidden) and should stay that way:
+
+- **Management/business opinion** — naive takes on org theory, hiring advice, vendor tips
+- **Explainer/overview pieces** — VoIP, NAS, virtualization, DVCS advocacy
+- **Industry commentary** — opinion on industry news, social media takes
+- **Blog housekeeping** — "first post", location changes, site merges
+
+The imported WordPress content has broken external image references that have
+been removed. Do not re-add external image URLs from the original WordPress
+site (erik.labianca.org/blog/wp-content/) — they are dead.
+
 ## Preview and Build
 
 ```bash
@@ -76,12 +100,14 @@ hugo                        # build to public/
 
 The dev server live-reloads on file changes.
 
-## Deployment
+## CI/CD
 
-Deployment is automatic via GitHub Actions on push to `master`. The workflow:
-1. Checks out repo + submodules
-2. Runs `hugo --minify`
-3. Deploys `public/` to GitHub Pages
+- **PR checks** (`pr.yml`): Runs `hugo --gc --minify` on pull requests to
+  `master`. Build must pass before merging.
+- **Deploy** (`hugo.yml`): On push to `master`, builds and deploys to GitHub
+  Pages at `erik.labianca.org` (custom domain via CNAME to `easel.github.io`).
+
+Hugo version is pinned to **0.156.0 extended** in both workflows.
 
 ## Theme Customization
 
