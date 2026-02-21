@@ -2,7 +2,7 @@
 title: "Level of Work: Choose the right person for the task"
 date: 2009-02-23T11:36:14+00:00
 author: "Erik LaBianca"
-draft: false
+draft: true
 description: "Applying Elliott Jacques' Level of Work theory to assign the right technical tasks to the right people."
 categories:
   - Management

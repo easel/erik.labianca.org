@@ -2,7 +2,7 @@
 title: "Vendor negotiation tips"
 date: 2009-02-23T14:02:33+00:00
 author: "Erik LaBianca"
-draft: false
+draft: true
 description: "Practical tips for negotiating with technology vendors, from keeping options open to demanding demos."
 categories:
   - Purchasing

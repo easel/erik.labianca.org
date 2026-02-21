@@ -2,7 +2,7 @@
 title: "Developers for Smarties: 5 Traits Of Great Programmers"
 date: 2009-02-26T08:29:22+00:00
 author: "Erik LaBianca"
-draft: false
+draft: true
 description: "Five key traits to look for when hiring programmers, from engagement with technology to continuous learning."
 categories:
   - Information

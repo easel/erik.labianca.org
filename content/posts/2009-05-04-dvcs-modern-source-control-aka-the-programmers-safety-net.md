@@ -2,7 +2,7 @@
 title: "DVCS: Modern Source Control aka the Programmer's Safety Net"
 date: 2009-05-04T12:28:31+00:00
 author: "Erik LaBianca"
-draft: false
+draft: true
 description: "Why distributed version control systems are essential tools for modern software development."
 categories:
   - Information

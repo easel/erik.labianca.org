@@ -2,7 +2,7 @@
 title: "New Location"
 date: 2008-01-19T18:46:47+00:00
 author: "Erik LaBianca"
-draft: false
+draft: true
 description: "Announcing the blog's move from the work server to erik.labianca.org."
 categories:
   - Uncategorized

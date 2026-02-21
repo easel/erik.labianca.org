@@ -2,7 +2,7 @@
 title: "What is Network Attached Storage, anyway?"
 date: 2009-02-09T20:24:51+00:00
 author: "Erik LaBianca"
-draft: false
+draft: true
 description: "An overview of Network Attached Storage, what it is, and when you should consider buying one."
 categories:
   - Information

@@ -2,7 +2,7 @@
 title: "How to keep your personal data safe"
 date: 2009-02-18T09:14:44+00:00
 author: "Erik LaBianca"
-draft: false
+draft: true
 description: "Simple and straightforward steps to back up your personal data and keep it safe."
 categories:
   - Information

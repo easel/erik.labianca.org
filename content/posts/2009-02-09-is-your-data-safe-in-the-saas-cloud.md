@@ -2,7 +2,7 @@
 title: "Is your data safe in the SAAS cloud?"
 date: 2009-02-09T22:34:22+00:00
 author: "Erik LaBianca"
-draft: false
+draft: true
 description: "Examining the risks of storing data in cloud and SAAS applications and how to protect yourself."
 categories:
   - Information

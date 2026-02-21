@@ -2,7 +2,7 @@
 title: "First Post!"
 date: 2006-10-01T23:55:44+00:00
 author: "Erik LaBianca"
-draft: false
+draft: true
 categories:
   - Uncategorized
 description: "Kicking off a blog to document research into storage, virtualization, and VOIP for a small business."

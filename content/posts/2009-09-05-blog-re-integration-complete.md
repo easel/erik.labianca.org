@@ -2,7 +2,7 @@
 title: "Blog Re-Integration Complete"
 date: 2009-09-05T16:51:26+00:00
 author: "Erik LaBianca"
-draft: false
+draft: true
 description: "Merged two blogs back into one with 301 redirects in place for a seamless transition."
 categories:
   - Uncategorized

@@ -2,7 +2,7 @@
 title: "What's all the noise about VoIP, anyway?"
 date: 2009-02-12T00:21:46+00:00
 author: "Erik LaBianca"
-draft: false
+draft: true
 description: "An introduction to VoIP technology, how it compares to traditional telephony, and what it means for you."
 tags:
   - telephony

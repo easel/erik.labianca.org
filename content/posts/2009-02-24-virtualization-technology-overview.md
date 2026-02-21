@@ -2,7 +2,7 @@
 title: "Virtualization Technology Overview"
 date: 2009-02-24T09:00:05+00:00
 author: "Erik LaBianca"
-draft: false
+draft: true
 description: "An overview of virtualization technologies from storage to runtime, and why they matter for modern IT."
 categories:
   - Information

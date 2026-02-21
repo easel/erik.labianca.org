@@ -2,7 +2,7 @@
 title: "Does it really have to be so hard?"
 date: 2006-10-18T16:09:05+00:00
 author: "Erik LaBianca"
-draft: false
+draft: true
 categories:
   - Rants
 description: "A rant about Linux binary compatibility problems and why the LSB should matter more for application distribution."
