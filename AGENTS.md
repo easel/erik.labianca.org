@@ -28,6 +28,7 @@ old/                # Legacy WordPress content (_posts, _config.yml) — referen
 hugo.yaml           # Site configuration
 justfile            # Task runner commands (just)
 lefthook.yml        # Pre-commit hook config
+.rumdl.toml         # Markdown linter config (rumdl)
 check-pages.mjs     # Playwright page checker (crawls sitemap, screenshots pages)
 package.json        # Node deps (playwright for page checks)
 .github/workflows/
@@ -123,7 +124,8 @@ no arguments to see available commands:
 ```bash
 just serve    # dev server at localhost:1313 with drafts (correct baseURL)
 just build    # production build (matches CI)
-just lint     # build + fail on any warnings (raw HTML, deprecations, etc.)
+just lint     # Hugo warnings + markdown lint (rumdl)
+just fmt      # autoformat markdown files
 just new foo  # create post content/posts/YYYY-MM-DD-foo.md
 just check    # run Playwright page checks against local server
 just deploy   # push next → master (triggers deploy)
@@ -143,12 +145,34 @@ on every commit to catch build errors before they reach CI.
 
 Setup (one-time per worktree): `lefthook install`
 
-Two checks run on every commit:
+Three checks run on every commit:
 - **hugo-build** — build must succeed
 - **hugo-lint** — build must produce zero warnings (catches raw HTML, deprecated
   features, etc.)
+- **markdown-lint** — `rumdl check content/` must pass (line length, code block
+  languages, bare URLs, heading structure, etc.)
 
-If a commit is blocked, fix the error/warning and commit again.
+If a commit is blocked, fix the issue and commit again. Run `just fmt` to
+autofix most markdown issues.
+
+### Markdown Linter (rumdl)
+
+[rumdl](https://github.com/rvben/rumdl) is a Rust-based markdown linter and
+formatter. Config lives in `.rumdl.toml`.
+
+```bash
+just lint     # check Hugo warnings + markdown lint
+just fmt      # autoformat markdown (rewrap, fix code blocks, etc.)
+rumdl check content/   # lint only
+rumdl fmt content/     # format only
+```
+
+Key rules enforced:
+- **MD013** — lines must not exceed 80 characters (code blocks and tables
+  excluded)
+- **MD040** — fenced code blocks must have a language identifier
+- **MD034** — bare URLs must use angle brackets or link syntax
+- **MD071** — blank line required after YAML front matter
 
 ### Page Checker (check-pages.mjs)
 

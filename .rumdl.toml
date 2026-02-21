@@ -1,0 +1,20 @@
+# rumdl configuration file
+
+[global]
+exclude = [
+    ".git",
+    ".github",
+    "node_modules",
+    "vendor",
+    "themes",
+    "old",
+    "public",
+]
+
+respect-gitignore = true
+
+[MD013]
+line-length = 80
+code-blocks = false
+tables = false
+headings = false
