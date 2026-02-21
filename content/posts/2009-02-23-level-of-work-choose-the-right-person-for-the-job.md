@@ -15,8 +15,6 @@ In the managerial world, at least in some circles, [Elliott Jacques](http://en.w
 
 In short, Jacques found that human's ability to handle task complexity increases in step-wise manner, each level of which he called a Level of Work. Each level of work can be defined in terms of its maximum Time Span of Discretion (or time span), and also by the problem solving methodology required to be able to operate effectively at that level. In addition, since the levels of work are discrete, the crux of requisite organization theory is that each level must be "stacked" appropriately within the organization for the organization to function effectively. Jacques uses the term "Cognitive Capability" to describe the level of work a given person is capable of.
 
-![Hard at Work!](http://erik.labianca.org/blog/wp-content/uploads/2009/02/38637594_141a1c401a.jpg)
-
 Regardless, organizational theory aside, the concept of work levels brings much to bear to technical work as well. In a technical environment, Jacques theory provides a way to determine the best person for a given technical task. In addition, understanding a person's cognitive capability makes it possible to ensure that you assign them tasks in chunks they are capable of handling.
 
 **Stratum I -- Engineers**

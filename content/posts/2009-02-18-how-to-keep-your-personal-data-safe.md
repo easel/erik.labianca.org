@@ -13,8 +13,6 @@ tags:
 
 Everybody worries about it. I've got over 30 GB worth of photo's archived at home, and I wouldn't want to lose a single one of them. The rule I try to follow is very simple. Some folks call it the [LOCKSS](http://www.lockss.org/lockss/Home) principle, which stands for Lots Of Copies Keeps Stuff Safe. Unfortunately, it's a little easier said than done, and many folks I know don't even say it, let alone do it!
 
-![Maybe he lost his data...](http://cache.daylife.com/imageserve/04bu0diaoe85T/110x150.jpg)
-
 Before we get into the details, let's cover a few ground rules.
 
 1. You have data you care about on your personal computer. If you don't care about it, don't back it up, problem solved.
