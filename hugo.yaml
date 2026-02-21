@@ -1,0 +1,60 @@
+baseURL: https://erik.labianca.org/
+languageCode: en-us
+title: "Erik's Weblog"
+theme: PaperMod
+
+paginate: 10
+
+params:
+  description: "A blog. About stuff."
+  author: Erik LaBianca
+  defaultTheme: auto
+  showReadingTime: true
+  showShareButtons: false
+  showPostNavLinks: true
+  showBreadCrumbs: true
+  showCodeCopyButtons: true
+  showToc: true
+
+  homeInfoParams:
+    Title: "Erik's Weblog"
+    Content: >
+      Technology, software engineering, and infrastructure —
+      from someone who's been building things on the internet since 1997.
+
+  socialIcons:
+    - name: github
+      url: https://github.com/easel
+    - name: rss
+      url: /index.xml
+
+menu:
+  main:
+    - name: Archive
+      url: /archives/
+      weight: 5
+    - name: Tags
+      url: /tags/
+      weight: 10
+    - name: About
+      url: /about/
+      weight: 15
+    - name: Search
+      url: /search/
+      weight: 20
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+markup:
+  highlight:
+    style: monokai
+    lineNos: false
+    guessSyntax: true
+
+taxonomies:
+  tag: tags
+  category: categories
