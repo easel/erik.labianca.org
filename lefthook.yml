@@ -1,0 +1,8 @@
+pre-commit:
+  commands:
+    hugo-build:
+      run: just build
+      fail_text: "Hugo build failed"
+    hugo-lint:
+      run: just lint
+      fail_text: "Hugo build produced warnings or markdown lint errors"
