@@ -2,7 +2,7 @@
 title: "Get Started Using Mercurial Source Control in 5 Minutes or Less"
 date: 2009-05-12T09:51:40+00:00
 author: "Erik LaBianca"
-draft: false
+draft: true
 description: "A quick-start guide to using Mercurial DVCS for source control on any computer in just minutes."
 categories:
   - Information
