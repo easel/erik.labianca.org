@@ -23,6 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: 0.156.0
+      RUMDL_VERSION: 0.1.25
     steps:
       - name: Install Hugo CLI
         run: |
@@ -31,7 +32,7 @@ jobs:
       - name: Install just
         uses: extractions/setup-just@v2
       - name: Install rumdl
-        run: curl -LsSf https://github.com/rvben/rumdl/releases/latest/download/rumdl-linux-x86_64.tar.gz | tar xzf - -C /usr/local/bin
+        run: curl -LsSf https://github.com/rvben/rumdl/releases/download/v${RUMDL_VERSION}/rumdl-v${RUMDL_VERSION}-x86_64-unknown-linux-gnu.tar.gz | tar xzf - -C /usr/local/bin
       - name: Checkout
         uses: actions/checkout@v4
         with:
