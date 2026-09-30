@@ -15,8 +15,15 @@ lint:
     #!/usr/bin/env bash
     set -euo pipefail
     output=$(hugo --gc --minify 2>&1) || { echo "$output"; exit 1; }
-    if echo "$output" | grep -q WARN; then
-        echo "$output" | grep WARN
+    # PaperMod still calls two APIs Hugo deprecated in v0.158.0, in
+    # layouts/_default/baseof.html and layouts/partials/templates/opengraph.html.
+    # Upstream master has not fixed them (checked 2026-09-30), and overriding
+    # either file would fork the theme's page skeleton. Delete these two
+    # patterns once upstream moves to .Locale/.Direction. Our own templates and
+    # every other WARN still fail the build.
+    upstream='\.Language\.LanguageDirection was deprecated|\.Language\.LanguageCode was deprecated'
+    if echo "$output" | grep WARN | grep -Ev "$upstream" | grep -q .; then
+        echo "$output" | grep WARN | grep -Ev "$upstream"
         exit 1
     fi
     rumdl check content/
