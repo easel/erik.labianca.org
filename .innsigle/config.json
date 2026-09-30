@@ -1,0 +1,36 @@
+{
+  "schema_version": "1",
+  "issuer": {
+    "id": "erik-labianca-org",
+    "name": "Erik LaBianca",
+    "key_id": "ed25519:0eadd6e9633ab0040aca5f55074162eb",
+    "key_url": "https://erik.labianca.org/.well-known/innsigle/keys.json",
+    "public_key": "CTJNF5PMjqtvQ4guPY0ZI4dbfk0kL8KR30HgPnGLr24"
+  },
+  "paths": {
+    "public": ".innsigle/public",
+    "keys": ".innsigle/public/keys.json",
+    "claims_dir": ".innsigle/public/claims"
+  },
+  "publish": {
+    "site_keys_path": "/.well-known/innsigle/keys.json",
+    "copy": {
+      "from": ".innsigle/public",
+      "to": ".well-known/innsigle"
+    }
+  },
+  "onepassword": {
+    "vault": "Private",
+    "item_title": "Innsigle \u00b7 erik-labianca-org",
+    "item_id": "7u4ny6ah4xfcnv6bgqonzvhx3u",
+    "private_key_ref": "op://Private/7u4ny6ah4xfcnv6bgqonzvhx3u/private key"
+  },
+  "content_root": "content",
+  "content_globs": [
+    "content/posts/**/*.md",
+    "content/agent/**/*.md"
+  ],
+  "kind_from_frontmatter": {
+    "field": "composition"
+  }
+}

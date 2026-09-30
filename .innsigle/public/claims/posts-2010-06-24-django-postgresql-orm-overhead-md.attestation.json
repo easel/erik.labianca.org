@@ -1,0 +1,43 @@
+{
+  "payload": {
+    "innsigle": "1",
+    "type": "https://innsigle.dev/claim/colophon/v1",
+    "issued_at": "2026-09-30T17:12:04Z",
+    "issuer": {
+      "id": "erik-labianca-org",
+      "name": "Erik LaBianca",
+      "key_id": "ed25519:0eadd6e9633ab0040aca5f55074162eb",
+      "key_url": "https://erik.labianca.org/.well-known/innsigle/keys.json"
+    },
+    "subjects": [
+      {
+        "uri": "https://erik.labianca.org/posts/2010-06-24-django-postgresql-orm-overhead/",
+        "digest": {
+          "alg": "sha256",
+          "value": "0e3aad8ccda41d3d3a9b299e9529397b6bb67a898d71e2684a8a28b6a8617bfa"
+        }
+      }
+    ],
+    "colophon": {
+      "schema_version": "1",
+      "composition": "human-authored",
+      "ingredients": [
+        {
+          "kind": "human",
+          "name": "operator",
+          "role": "author"
+        }
+      ],
+      "notes": null
+    }
+  },
+  "payload_encoding": "json",
+  "signatures": [
+    {
+      "key_id": "ed25519:0eadd6e9633ab0040aca5f55074162eb",
+      "alg": "ed25519",
+      "sig": "tsgkmbkHeRWT7_iNMgCzbeeoKrtk9iF8wGp5xzS_dZkmGx2xRTZ8EY8xHe8n6Ny13rD74h380CyEb_QLj-FmAw",
+      "signed_at": "2026-09-30T17:12:04Z"
+    }
+  ]
+}

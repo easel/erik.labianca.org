@@ -1,4 +1,5 @@
 ---
+composition: human-authored
 title: "Security Appliance Roundup"
 date: 2006-10-10T11:55:06+00:00
 author: "Erik LaBianca"

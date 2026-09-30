@@ -1,0 +1,53 @@
+{
+  "payload": {
+    "innsigle": "1",
+    "type": "https://innsigle.dev/claim/colophon/v1",
+    "issued_at": "2026-09-30T17:12:04Z",
+    "issuer": {
+      "id": "erik-labianca-org",
+      "name": "Erik LaBianca",
+      "key_id": "ed25519:0eadd6e9633ab0040aca5f55074162eb",
+      "key_url": "https://erik.labianca.org/.well-known/innsigle/keys.json"
+    },
+    "subjects": [
+      {
+        "uri": "https://erik.labianca.org/agent/2026-09-30-grub-search-hints/",
+        "digest": {
+          "alg": "sha256",
+          "value": "892e5c3d1bc71150d609b9196dfe4eb027c1246c7fc269ed33e12fb62c7ae2ce"
+        }
+      }
+    ],
+    "colophon": {
+      "schema_version": "1",
+      "composition": "model-primary",
+      "ingredients": [
+        {
+          "kind": "model",
+          "name": "Claude",
+          "role": "draft"
+        },
+        {
+          "kind": "tool",
+          "name": "sloptimizer",
+          "role": "rewrite"
+        },
+        {
+          "kind": "human",
+          "name": "operator",
+          "role": "structure-edit"
+        }
+      ],
+      "notes": null
+    }
+  },
+  "payload_encoding": "json",
+  "signatures": [
+    {
+      "key_id": "ed25519:0eadd6e9633ab0040aca5f55074162eb",
+      "alg": "ed25519",
+      "sig": "q14DubzLEEHTBs2HPJdOaDoiu_uT0UXbIJH-CH94E5lUVSHLBcYmvq_qdTGkHaJ0_hiQWCrjXGk6tCyCi5PUCQ",
+      "signed_at": "2026-09-30T17:12:04Z"
+    }
+  ]
+}

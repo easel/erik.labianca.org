@@ -1,0 +1,43 @@
+{
+  "payload": {
+    "innsigle": "1",
+    "type": "https://innsigle.dev/claim/colophon/v1",
+    "issued_at": "2026-09-30T17:12:04Z",
+    "issuer": {
+      "id": "erik-labianca-org",
+      "name": "Erik LaBianca",
+      "key_id": "ed25519:0eadd6e9633ab0040aca5f55074162eb",
+      "key_url": "https://erik.labianca.org/.well-known/innsigle/keys.json"
+    },
+    "subjects": [
+      {
+        "uri": "https://erik.labianca.org/posts/2006-10-10-disk-benchmarks-round-1/",
+        "digest": {
+          "alg": "sha256",
+          "value": "b2e13b1470705650754ad09c5d184b78924abc1a17e04d0d0e63c090fb210dbf"
+        }
+      }
+    ],
+    "colophon": {
+      "schema_version": "1",
+      "composition": "human-authored",
+      "ingredients": [
+        {
+          "kind": "human",
+          "name": "operator",
+          "role": "author"
+        }
+      ],
+      "notes": null
+    }
+  },
+  "payload_encoding": "json",
+  "signatures": [
+    {
+      "key_id": "ed25519:0eadd6e9633ab0040aca5f55074162eb",
+      "alg": "ed25519",
+      "sig": "AuO99u6U5EXSmDHXrAhSMfdbCihpwrFZXToM7fSLZdAEdskCdvV2fGl_2CAD69hSs8m50Pkzfda_O9NlY3-RAg",
+      "signed_at": "2026-09-30T17:12:04Z"
+    }
+  ]
+}

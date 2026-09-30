@@ -1,7 +1,10 @@
-public/
+# Anchored: an unanchored `public/` also matches .innsigle/public/, which
+# holds the issuer document and claims and must be committed.
+/public/
 resources/_gen/
 .hugo_build.lock
 .DS_Store
+.claude/
 node_modules/
 .lefthook-local.yml
 .rumdl_cache/

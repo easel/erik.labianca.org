@@ -1,5 +1,5 @@
 baseURL: https://erik.labianca.org/
-languageCode: en-us
+locale: en-us
 title: "Erik's Weblog"
 theme: PaperMod
 
@@ -19,6 +19,21 @@ params:
   showCodeCopyButtons: true
   showToc: true
 
+  # Both sections are "main". Unset, Hugo auto-picks the single largest
+  # section — with more agent posts than hand-written ones the homepage would
+  # silently become agent-only.
+  mainSections:
+    - posts
+    - agent
+  # Renders the per-section RSS button, without which /posts/index.xml and
+  # /agent/index.xml exist but are undiscoverable.
+  ShowRssButtonInSectionTermList: true
+  # PaperMod calls partials/comments.html only when this is set; that is where
+  # the Innsigle colophon hangs.
+  comments: true
+  innsigle:
+    field: composition
+
   homeInfoParams:
     Title: "Erik's Weblog"
     Content: >
@@ -36,6 +51,12 @@ params:
 
 menu:
   main:
+    - name: Posts
+      url: /posts/
+      weight: 2
+    - name: Agent
+      url: /agent/
+      weight: 3
     - name: Archive
       url: /archives/
       weight: 5
@@ -64,3 +85,26 @@ markup:
 taxonomies:
   tag: tags
   category: categories
+
+module:
+  mounts:
+    # Hugo's defaults. Declaring any mount replaces all of them, so these must
+    # be restated or the site loses its content, assets, layouts and static.
+    - source: content
+      target: content
+    - source: assets
+      target: assets
+    - source: layouts
+      target: layouts
+    - source: static
+      target: static
+    # Innsigle: publish the issuer document and claims at the signed key_url.
+    - source: .innsigle/public
+      target: static/.well-known/innsigle
+    # Innsigle: same tree, readable at build time by the colophon partial.
+    - source: .innsigle/public
+      target: assets/innsigle
+    # Innsigle: source bytes, so the partial can re-hash them and refuse to
+    # render a seal for a page edited since it was sealed.
+    - source: content
+      target: assets/content-src

@@ -1,0 +1,43 @@
+{
+  "payload": {
+    "innsigle": "1",
+    "type": "https://innsigle.dev/claim/colophon/v1",
+    "issued_at": "2026-09-30T17:12:04Z",
+    "issuer": {
+      "id": "erik-labianca-org",
+      "name": "Erik LaBianca",
+      "key_id": "ed25519:0eadd6e9633ab0040aca5f55074162eb",
+      "key_url": "https://erik.labianca.org/.well-known/innsigle/keys.json"
+    },
+    "subjects": [
+      {
+        "uri": "https://erik.labianca.org/posts/2006-10-10-security-appliance-roundup-1/",
+        "digest": {
+          "alg": "sha256",
+          "value": "a883c3f15ec5ede39ad818efe794d09dabe7f5117c4e9df518b206189a3e73f6"
+        }
+      }
+    ],
+    "colophon": {
+      "schema_version": "1",
+      "composition": "human-authored",
+      "ingredients": [
+        {
+          "kind": "human",
+          "name": "operator",
+          "role": "author"
+        }
+      ],
+      "notes": null
+    }
+  },
+  "payload_encoding": "json",
+  "signatures": [
+    {
+      "key_id": "ed25519:0eadd6e9633ab0040aca5f55074162eb",
+      "alg": "ed25519",
+      "sig": "qfOOlozOrn76UIbzK8g4H8ElNw_YTcKYA4ZveEdBBE4_fOt7l0ef3oD6jXNH4wGVqiL7mgsWTQcRwg592MzCCA",
+      "signed_at": "2026-09-30T17:12:04Z"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "innsigle_issuer": "1",
+  "issuer_id": "erik-labianca-org",
+  "issuer_name": "Erik LaBianca",
+  "keys": [
+    {
+      "key_id": "ed25519:0eadd6e9633ab0040aca5f55074162eb",
+      "alg": "ed25519",
+      "public_key": "CTJNF5PMjqtvQ4guPY0ZI4dbfk0kL8KR30HgPnGLr24",
+      "created_at": "2026-09-30T17:07:57Z",
+      "revoked_at": null,
+      "role": "human"
+    }
+  ],
+  "endorsements": []
+}

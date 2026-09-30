@@ -1,0 +1,22 @@
+{{- /* Scope prev/next to the current section. The theme uses mainSections,
+       which now holds both posts and agent — so without this, "next" walks
+       from a hand-written post straight into an agent-drafted one. */ -}}
+{{- $pages := where site.RegularPages "Section" .Section }}
+{{- if and (gt (len $pages) 1) (in $pages . ) }}
+<nav class="paginav">
+  {{- with $pages.Next . }}
+  <a class="prev" href="{{ .Permalink }}">
+    <span class="title">« {{ i18n "prev_page" }}</span>
+    <br>
+    <span>{{- .Name -}}</span>
+  </a>
+  {{- end }}
+  {{- with $pages.Prev . }}
+  <a class="next" href="{{ .Permalink }}">
+    <span class="title">{{ i18n "next_page" }} »</span>
+    <br>
+    <span>{{- .Name -}}</span>
+  </a>
+  {{- end }}
+</nav>
+{{- end }}
