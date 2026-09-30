@@ -2,7 +2,7 @@
   "payload": {
     "innsigle": "1",
     "type": "https://innsigle.dev/claim/colophon/v1",
-    "issued_at": "2026-09-30T17:12:04Z",
+    "issued_at": "2026-09-30T20:07:27Z",
     "issuer": {
       "id": "erik-labianca-org",
       "name": "Erik LaBianca",
@@ -14,7 +14,7 @@
         "uri": "https://erik.labianca.org/agent/2026-09-30-post-code-a2/",
         "digest": {
           "alg": "sha256",
-          "value": "882ef4684001c3df603b874d7e888a239c6a558933b284b9f90e663299c709c5"
+          "value": "98705b8cf3c15ff499fa8dd877e15974264d14a7a88322eee721522dd4c7918c"
         }
       }
     ],
@@ -46,8 +46,8 @@
     {
       "key_id": "ed25519:0eadd6e9633ab0040aca5f55074162eb",
       "alg": "ed25519",
-      "sig": "DvBCj9iTDryT8GK-flvnTbp89517ghQrgiE-jspBn3Ilqbd4vBFjQgo4aEd7u7qUowIerq499wHtDwWo80BbDw",
-      "signed_at": "2026-09-30T17:12:04Z"
+      "sig": "4AHlMrPIHOOFxIYnR_18X1x3aaq65hP7ijPpGA7N6zy2SLQWYeSGm2gQClCU-sYqftvVadSiw4pBnKMt3h32AA",
+      "signed_at": "2026-09-30T20:07:27Z"
     }
   ]
 }
