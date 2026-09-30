@@ -6,3 +6,8 @@ pre-commit:
     hugo-lint:
       run: just lint
       fail_text: "Hugo build produced warnings or markdown lint errors"
+    innsigle-seals:
+      # A post edited after sealing still builds and deploys fine; it just
+      # renders no seal on the page. Only this check notices.
+      run: just verify-seals
+      fail_text: "Innsigle seals are stale or missing - run `just seal` and commit the updated claims"

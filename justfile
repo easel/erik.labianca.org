@@ -28,6 +28,32 @@ lint:
     fi
     rumdl check content/
 
+# Verify innsigle seals (public keys only, safe in CI)
+verify-seals:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    # Uses public keys and claims only — no 1Password, no private key — so this
+    # is safe in CI and pre-commit. It catches the failure mode nothing else
+    # does: a post edited after sealing still builds and deploys fine, it just
+    # silently renders no seal on the page.
+    if ! command -v innsigle >/dev/null 2>&1; then
+        echo "innsigle not installed. Install the pinned version:" >&2
+        echo "  npm i -g github:DocumentDrivenDX/innsigle#v0.6.1" >&2
+        exit 1
+    fi
+    innsigle verify --all
+    innsigle doctor --hugo
+
+# Re-seal content after editing (needs 1Password, local only)
+seal:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    # Signing needs the private key from 1Password, so this can never run in
+    # CI. Run it after any change under content/, then commit the updated
+    # claims in .innsigle/public/claims/.
+    OP_ACCOUNT="${OP_ACCOUNT:-labiancas.1password.com}" innsigle seal --all
+    just verify-seals
+
 # Format markdown files
 fmt:
     rumdl fmt content/
