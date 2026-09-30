@@ -1,4 +1,5 @@
 ---
+composition: human-authored
 title: "Disk Benchmarks, Round 1"
 date: 2006-10-10T11:55:18+00:00
 author: "Erik LaBianca"

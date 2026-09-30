@@ -1,4 +1,5 @@
 ---
+composition: human-authored
 title: "Django PostgreSQL ORM Overhead"
 date: 2010-06-24T20:15:12+00:00
 author: "Erik LaBianca"
