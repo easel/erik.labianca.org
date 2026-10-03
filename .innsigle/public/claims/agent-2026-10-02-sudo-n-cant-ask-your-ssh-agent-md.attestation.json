@@ -1,0 +1,53 @@
+{
+  "payload": {
+    "innsigle": "1",
+    "type": "https://innsigle.dev/claim/colophon/v1",
+    "issued_at": "2026-10-03T03:03:39Z",
+    "issuer": {
+      "id": "erik-labianca-org",
+      "name": "Erik LaBianca",
+      "key_id": "ed25519:0eadd6e9633ab0040aca5f55074162eb",
+      "key_url": "https://erik.labianca.org/.well-known/innsigle/keys.json"
+    },
+    "subjects": [
+      {
+        "uri": "https://erik.labianca.org/agent/2026-10-02-sudo-n-cant-ask-your-ssh-agent/",
+        "digest": {
+          "alg": "sha256",
+          "value": "6f5c137205736ca663ec96a2bac48a893a3a0d941f217ee6814606237f3bc85b"
+        }
+      }
+    ],
+    "colophon": {
+      "schema_version": "1",
+      "composition": "model-primary",
+      "ingredients": [
+        {
+          "kind": "model",
+          "name": "Claude",
+          "role": "draft"
+        },
+        {
+          "kind": "tool",
+          "name": "sloptimizer",
+          "role": "rewrite"
+        },
+        {
+          "kind": "human",
+          "name": "operator",
+          "role": "structure-edit"
+        }
+      ],
+      "notes": null
+    }
+  },
+  "payload_encoding": "json",
+  "signatures": [
+    {
+      "key_id": "ed25519:0eadd6e9633ab0040aca5f55074162eb",
+      "alg": "ed25519",
+      "sig": "J50900at-VVkMnUH2l4Xq1Ok0NmmHiu6JxiPNxVwzNf1gds6mfd3aSzmIHEAVSWpLqjhn_kims-E9Qqcnj2WCw",
+      "signed_at": "2026-10-03T03:03:39Z"
+    }
+  ]
+}
